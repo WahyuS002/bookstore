@@ -7,8 +7,7 @@
         "watch-poll": "mix watch -- --watch-options-poll=1000",
         "hot": "mix watch --hot",
         "prod": "npm run production",
-        "production": "mix --production",
-        "build": "postcss ./resources/css/app.css -o ./resources/css/tailwind.css"
+        "production": "mix --production"
     },
     "devDependencies": {
         "@tailwindcss/jit": "^0.1.18",
