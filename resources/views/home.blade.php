@@ -6,7 +6,7 @@
 	<div class="p-3 rounded-lg border bg-white border-gray-200 hover:shadow-soft transition duration-300 ease-in-out cursor-pointer">
 		<img src="{{ asset('storage/' . $book->cover_image) }}" class="h-64 w-full object-cover rounded-lg" alt="">
 		<div class="mt-3">
-			<p class="font-semibold text-primary">{{ $book->title }}</p>
+			<p class="font-semibold text-primary">{{ \Str::limit($book->title, 16) }}</p>
 			<p class="text-xs text-gray-400 uppercase">{{ $book->category }}</p>
 		</div>
 		<div class="mt-4 flex justify-between items-center">
@@ -18,7 +18,11 @@
 				</span>
 				<span class="ml-2 font-medium text-sm">{{ $book->rating }}</span>
 			</div>
+			@if ($book->payment_type == 'open')
+			<p class="text-sm text-primary font-semibold">Donation</p>
+			@else
 			<p class="text-sm text-primary font-semibold">{{ $book->price / 1000 . 'K' }}</p>
+			@endif
 		</div>
 	</div>
 	@endforeach

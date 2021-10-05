@@ -13,7 +13,7 @@
     @endauth
 </div>
 <div class="space-x-4 text-sm mt-4 px-5 py-2 rounded-lg border bg-white border-gray-200">
-	<a href="" class="font-semibold">All</a>
-	<a href="" class="text-gray-400">Fixed Price</a>
-	<a href="" class="text-gray-400">Donation</a>
+	<a href="{{ route('home') }}" class="{{ request()->is('/') ? 'font-semibold' : 'text-gray-400' }}">All</a>
+	<a href="{{ route('book', 'closed') }}" class="{{ request()->is('book/closed') ? 'font-semibold' : 'text-gray-400' }}">Fixed Price</a>
+	<a href="{{ route('book', 'open') }}" class="{{ request()->is('book/open') ? 'font-semibold' : 'text-gray-400' }}">Donation</a>
 </div>
