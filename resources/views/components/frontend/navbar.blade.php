@@ -12,8 +12,14 @@
     </a>
     @endauth
 </div>
+@if (request()->is('book/*'))
+<a href="{{ route('home') }}" class="mt-6 text-sm block text-primary hover:text-black transition duration-300 ease-in-out">
+    < Kembali
+</a>
+@else
 <div class="space-x-4 text-sm mt-4 px-5 py-2 rounded-lg border bg-white border-gray-200">
 	<a href="{{ route('home') }}" class="{{ request()->is('/') ? 'font-semibold' : 'text-gray-400' }}">All</a>
-	<a href="{{ route('book', 'closed') }}" class="{{ request()->is('book/closed') ? 'font-semibold' : 'text-gray-400' }}">Fixed Price</a>
-	<a href="{{ route('book', 'open') }}" class="{{ request()->is('book/open') ? 'font-semibold' : 'text-gray-400' }}">Donation</a>
+	<a href="{{ route('books', 'closed') }}" class="{{ request()->is('books/closed') ? 'font-semibold' : 'text-gray-400' }}">Fixed Price</a>
+	<a href="{{ route('books', 'open') }}" class="{{ request()->is('books/open') ? 'font-semibold' : 'text-gray-400' }}">Donation</a>
 </div>
+@endif

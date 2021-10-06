@@ -3,7 +3,7 @@
 @section('content')
 <div class="mt-6 grid grid-cols-4 gap-4">
 	@foreach ($books as $book)
-	<div class="p-3 rounded-lg border bg-white border-gray-200 hover:shadow-soft transition duration-300 ease-in-out cursor-pointer">
+	<a href="{{ route('book.show', $book->id) }}" class="p-3 rounded-lg border bg-white border-gray-200 hover:shadow-soft transition duration-300 ease-in-out">
 		<img src="{{ asset('storage/' . $book->cover_image) }}" class="h-64 w-full object-cover rounded-lg" alt="">
 		<div class="mt-3">
 			<p class="font-semibold text-primary">{{ \Str::limit($book->title, 16) }}</p>
@@ -24,7 +24,7 @@
 			<p class="text-sm text-primary font-semibold">{{ $book->price / 1000 . 'K' }}</p>
 			@endif
 		</div>
-	</div>
+	</a>
 	@endforeach
 </div>
 @endsection

@@ -17,7 +17,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-Route::get('book/{type}', [BookController::class, 'index'])->name('book');
+Route::get('books/{type}', [BookController::class, 'index'])->name('books');
+Route::get('book/{book}', [BookController::class, 'show'])->name('book.show');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

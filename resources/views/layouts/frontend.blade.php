@@ -9,6 +9,7 @@
 
 <body class="antialiased font-poppins bg-gray-50">
     <div class="w-[60%] my-12 mx-auto">
+
         @include('components.frontend.navbar')
 
         @yield('content')
