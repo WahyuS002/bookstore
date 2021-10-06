@@ -21,6 +21,9 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('books/{type}', [BookController::class, 'index'])->name('books');
 Route::get('book/{book}', [BookController::class, 'show'])->name('book.show');
 
+Route::get('book/{book}/checkout', [BookController::class, 'checkout'])->name('book.checkout');
+Route::get('book/{book}/donate', [BookController::class, 'donate'])->name('book.donate');
+
 Route::group(['middleware' => 'auth'], function () {
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
 });

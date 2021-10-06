@@ -1,6 +1,9 @@
 @extends('layouts.frontend')
 
 @section('content')
+<a href="{{ route('home') }}" class="mt-6 text-sm text-primary hover:text-black transition duration-300 ease-in-out inline-block">
+    < Kembali
+</a>
 <div class="flex items-center mt-6">
     <img class="h-80 object-contain rounded-md" src="{{ asset('storage/' . $book->cover_image) }}" alt="">
     <div class="ml-4 w-full">
@@ -24,10 +27,10 @@
         </div>
         <div class="flex items-center justify-between mt-3">
             @if ($book->payment_type == 'open')
-            <button class="border-2 border-primary text-primary px-4 py-2 rounded-md text-sm hover:bg-black hover:text-white transition duration-300 ease-in-out ml-auto">Donate Now</button>
+            <a href="{{ route('book.donate', $book->id) }}" class="border-2 border-primary text-primary px-4 py-2 rounded-md text-sm hover:bg-black hover:text-white transition duration-300 ease-in-out ml-auto">Donate Now</a>
             @else
             <p class="text-lg font-medium text-primary">Rp. {{ number_format($book->price) }}</p>
-            <button class="border-2 border-primary text-primary px-4 py-2 rounded-md text-sm hover:bg-black hover:text-white transition duration-300 ease-in-out">Buy Now</button>
+            <a href="{{ route('book.checkout', $book->id) }}" class="border-2 border-primary text-primary px-4 py-2 rounded-md text-sm hover:bg-black hover:text-white transition duration-300 ease-in-out">Buy Now</a>
             @endif
         </div>
 
