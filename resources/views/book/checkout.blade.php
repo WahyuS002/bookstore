@@ -8,12 +8,14 @@
 <div class="grid grid-cols-5 gap-3 mt-6">
     <div class="col-span-4">
         <div class="grid grid-cols-4 gap-3">
-            <div class="bg-white p-5 h-32 w-36 rounded-md shadow-soft flex items-center">
-                <div>
-                    <img src="https://logos-download.com/wp-content/uploads/2016/06/Mandiri_logo.png" class="w-full" alt="">
-                    <p class="mt-3 text-xs text-gray-600">Pay with Mandiri</p>
+            <a href="{{ route('transaction.detail', [1, 'PX-233773']) }}">
+                <div class="bg-white p-5 h-32 w-36 rounded-md shadow-soft flex items-center">
+                    <div>
+                        <img src="https://logos-download.com/wp-content/uploads/2016/06/Mandiri_logo.png" class="w-full" alt="">
+                        <p class="mt-3 text-xs text-gray-600">Pay with Mandiri</p>
+                    </div>
                 </div>
-            </div>
+            </a>
         </div>
     </div>
     <div class="col-span-1">

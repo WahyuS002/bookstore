@@ -3,6 +3,7 @@
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\TransactionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,6 +24,8 @@ Route::get('book/{book}', [BookController::class, 'show'])->name('book.show');
 
 Route::get('book/{book}/checkout', [BookController::class, 'checkout'])->name('book.checkout');
 Route::get('book/{book}/donate', [BookController::class, 'donate'])->name('book.donate');
+
+Route::get('book/{book}/detail_transaction/{merchant_ref}', [TransactionController::class, 'detail'])->name('transaction.detail');
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
