@@ -1244,6 +1244,19 @@ video {
 }.navbar>* {
 	display: flex;
 	align-items: center;
+}.steps {
+	counter-reset: step;
+	grid-auto-columns: 1fr;
+	display: inline-grid;
+	overflow: hidden;
+	overflow-x: auto;
+	grid-auto-flow: column;
+}.steps .step {
+	display: grid;
+	place-items: center;
+	text-align: center;
+	grid-template-columns: repeat(1,minmax(0,1fr));
+	grid-template-rows: repeat(2,minmax(0,1fr));
 }.table {
 	position: relative;
 }.table th:first-child {
@@ -1346,14 +1359,14 @@ video {
 	height: 1.25rem;
 }.h-32 {
 	height: 8rem;
+}.h-10 {
+	height: 2.5rem;
 }.h-64 {
 	height: 16rem;
 }.h-56 {
 	height: 14rem;
 }.h-20 {
 	height: 5rem;
-}.h-10 {
-	height: 2.5rem;
 }.h-8 {
 	height: 2rem;
 }.h-16 {
