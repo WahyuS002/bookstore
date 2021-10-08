@@ -81,4 +81,33 @@ class TripayController extends Controller
 
         return $response ? json_decode($response)->data : $err;
     }
+
+    public function transactionDetail($reference)
+    {
+        $apiKey = 'DEV-Y2mqc239xcd3g0JCO6iwhYNUPgaTVBjcPsnoyaHL';
+
+        $payload = [
+            'reference'	=> $reference
+        ];
+
+        $curl = curl_init();
+
+        curl_setopt_array($curl, array(
+          CURLOPT_FRESH_CONNECT     => true,
+          CURLOPT_URL               => "https://tripay.co.id/api-sandbox/transaction/detail?".http_build_query($payload),
+          CURLOPT_RETURNTRANSFER    => true,
+          CURLOPT_HEADER            => false,
+          CURLOPT_HTTPHEADER        => array(
+            "Authorization: Bearer ".$apiKey
+          ),
+          CURLOPT_FAILONERROR       => false,
+        ));
+
+        $response = curl_exec($curl);
+        $err = curl_error($curl);
+
+        curl_close($curl);
+
+        return $response ? json_decode($response)->data : $err;
+    }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Payment\TripayController;
 use App\Models\Book;
+use App\Models\Transaction;
 use Illuminate\Http\Request;
 
 class TransactionController extends Controller
@@ -13,15 +14,24 @@ class TransactionController extends Controller
         $tripay = new TripayController();
         $method = $request->method;
         $detail = $tripay->requestTransaction($book, $method);
-        //  return view('transaction.detail', compact('detail'));
-        return redirect()->route('transaction.detail', [
-            'book' => $book->id,
-            'transaction' => $detail->merchant_ref
+
+        Transaction::create([
+            'reference' => $detail->reference,
+            'book_id' => $book->id,
+            'user_id' => 1,
+        ]);
+
+        return redirect()->route('transaction.invoice', [
+            'reference' => $detail->reference
         ]);
     }
 
-    public function detail(Book $book, $merchant_ref)
+    public function invoice($reference)
     {
-        dd($book, $merchant_ref);
+        $invoice = Transaction::where('reference', $reference)->first();
+        $tripay = new TripayController();
+        $detail = $tripay->transactionDetail($reference);
+
+        return view('transaction.detail', compact('detail'));
     }
 }

@@ -28,7 +28,7 @@ Route::get('book/{book}/donate', [BookController::class, 'donate'])->name('book.
 // Route::get('book/{book}/detail_transaction/{merchant_ref}', [TransactionController::class, 'detail'])->name('transaction.detail');
 
 Route::post('book/{book}/request_transaction', [TransactionController::class, 'request'])->name('transaction.request');
-Route::get('book/{book}/detail_transaction/{transaction}', [TransactionController::class, 'detail'])->name('transaction.detail');
+Route::get('invoice/{reference}', [TransactionController::class, 'invoice'])->name('transaction.invoice');
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
