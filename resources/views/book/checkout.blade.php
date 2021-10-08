@@ -8,14 +8,18 @@
 <div class="grid grid-cols-5 gap-3 mt-6">
     <div class="col-span-4">
         <div class="grid grid-cols-4 gap-3">
-            <a href="{{ route('transaction.detail', [1, 'PX-233773']) }}">
-                <div class="bg-white p-5 h-32 w-36 rounded-md shadow-soft flex items-center">
-                    <div>
-                        <img src="https://logos-download.com/wp-content/uploads/2016/06/Mandiri_logo.png" class="w-full" alt="">
-                        <p class="mt-3 text-xs text-gray-600">Pay with Mandiri</p>
+            @foreach ($channels->data as $channel)
+                @if ($channel->active)
+                <a href="{{ route('transaction.detail', [1, 'PX-233773']) }}">
+                    <div class="bg-white p-5 h-32 w-36 rounded-md shadow-soft flex items-center">
+                        <div>
+                            <img src="{{ asset('storage/bank/' . $channel->code . '.png') }}" class="w-full h-10 object-contain" alt="">
+                            <p class="mt-3 text-xs text-gray-600">Pay with {{ $channel->code }}</p>
+                        </div>
                     </div>
-                </div>
-            </a>
+                </a>
+                @endif
+            @endforeach
         </div>
     </div>
     <div class="col-span-1">
