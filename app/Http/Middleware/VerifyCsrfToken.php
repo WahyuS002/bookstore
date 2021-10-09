@@ -12,6 +12,6 @@ class VerifyCsrfToken extends Middleware
      * @var array
      */
     protected $except = [
-        'http://b66c-110-137-75-253.ngrok.io/callback'
+        'http://909f-110-137-75-253.ngrok.io/callback'
     ];
 }
