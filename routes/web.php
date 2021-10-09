@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\Payment\CallbackController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\TransactionController;
@@ -29,6 +30,8 @@ Route::get('book/{book}/donate', [BookController::class, 'donate'])->name('book.
 
 Route::post('book/{book}/request_transaction', [TransactionController::class, 'request'])->name('transaction.request');
 Route::get('invoice/{reference}', [TransactionController::class, 'invoice'])->name('transaction.invoice');
+
+Route::post('callback', [CallbackController::class, 'handle']);
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
