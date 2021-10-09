@@ -12,11 +12,3 @@
     </a>
     @endauth
 </div>
-@if (!request()->is('book/*'))
-<div class="space-x-4 text-sm mt-4 px-5 py-2 rounded-lg border bg-white border-gray-200">
-	<a href="{{ route('home') }}" class="{{ request()->is('/') ? 'font-semibold' : 'text-gray-400' }}">All</a>
-	<a href="{{ route('books', 'closed') }}" class="{{ request()->is('books/closed') ? 'font-semibold' : 'text-gray-400' }}">Fixed Price</a>
-	<a href="{{ route('books', 'open') }}" class="{{ request()->is('books/open') ? 'font-semibold' : 'text-gray-400' }}">Donation</a>
-</div>
-@else
-@endif

@@ -18,11 +18,7 @@
 				</span>
 				<span class="ml-2 font-medium text-sm">{{ $book->rating }}</span>
 			</div>
-			@if ($book->payment_type == 'open')
-			<p class="text-sm text-primary font-semibold">Donation</p>
-			@else
 			<p class="text-sm text-primary font-semibold">{{ $book->price / 1000 . 'K' }}</p>
-			@endif
 		</div>
 	</a>
 	@endforeach

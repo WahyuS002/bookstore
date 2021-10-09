@@ -25,9 +25,4 @@ class BookController extends Controller
 
         return view('book.checkout', compact('book', 'channels'));
     }
-
-    public function donate(Book $book)
-    {
-        return view('book.donate', compact('book'));
-    }
 }

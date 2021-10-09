@@ -26,12 +26,8 @@
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt quo facilis optio ut, molestias quam, at unde error laudantium fugiat laboriosam commodi in asperiores libero! Asperiores?</p>
         </div>
         <div class="flex items-center justify-between mt-3">
-            @if ($book->payment_type == 'open')
-            <a href="{{ route('book.donate', $book->id) }}" class="border-2 border-primary text-primary px-4 py-2 rounded-md text-sm hover:bg-black hover:text-white transition duration-300 ease-in-out ml-auto">Donate Now</a>
-            @else
             <p class="text-lg font-medium text-primary">Rp. {{ number_format($book->price) }}</p>
             <a href="{{ route('book.checkout', $book->id) }}" class="border-2 border-primary text-primary px-4 py-2 rounded-md text-sm hover:bg-black hover:text-white transition duration-300 ease-in-out">Buy Now</a>
-            @endif
         </div>
 
     </div>
