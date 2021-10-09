@@ -23,15 +23,14 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('books/{type}', [BookController::class, 'index'])->name('books');
 Route::get('book/{book}', [BookController::class, 'show'])->name('book.show');
 
-Route::get('book/{book}/checkout', [BookController::class, 'checkout'])->name('book.checkout');
-
-Route::post('book/{book}/request_transaction', [TransactionController::class, 'request'])->name('transaction.request');
-Route::get('invoice/{reference}', [TransactionController::class, 'invoice'])->name('transaction.invoice');
-
-Route::post('callback', [CallbackController::class, 'handle']);
-
 Route::group(['middleware' => 'auth'], function () {
+    Route::get('book/{book}/checkout', [BookController::class, 'checkout'])->name('book.checkout');
+
+    Route::post('book/{book}/request_transaction', [TransactionController::class, 'request'])->name('transaction.request');
+    Route::get('invoice/{reference}', [TransactionController::class, 'invoice'])->name('transaction.invoice');
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
 });
+
+Route::post('callback', [CallbackController::class, 'handle']);
 
 require __DIR__.'/auth.php';
