@@ -9,8 +9,9 @@ use Illuminate\Http\Request;
 
 class TransactionController extends Controller
 {
-    public function request(Book $book, Request $request)
+    public function store(Request $request)
     {
+        $book = Book::where('id', $request->book_id)->first();
         $tripay = new TripayController();
         $method = $request->method;
         $detail = $tripay->requestTransaction($book, $method);

@@ -10,8 +10,9 @@
         <div class="grid grid-cols-4 gap-3">
             @foreach ($channels->data as $channel)
                 @if ($channel->active)
-                <form action="{{ route('transaction.request', $book->id) }}" method="POST" class="cursor-pointer">
+                <form action="{{ route('transaction.store', $book->id) }}" method="POST" class="cursor-pointer">
                     @csrf
+                    <input type="hidden" name="book_id" value="{{ $book->id }}">
                     <input type="hidden" name="method" value="{{ $channel->code }}">
                     <button type="submit" class="bg-white p-5 h-32 w-36 rounded-md shadow-soft flex items-center">
                         <div>
