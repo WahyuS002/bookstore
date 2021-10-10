@@ -27,7 +27,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('book/{book}/checkout', [BookController::class, 'checkout'])->name('book.checkout');
 
     Route::post('transaction', [TransactionController::class, 'store'])->name('transaction.store');
-    Route::get('invoice/{reference}', [TransactionController::class, 'invoice'])->name('transaction.invoice');
+    Route::get('transaction/{reference}', [TransactionController::class, 'show'])->name('transaction.show');
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
 });
 

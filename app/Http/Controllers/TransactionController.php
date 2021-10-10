@@ -19,17 +19,16 @@ class TransactionController extends Controller
         Transaction::create([
             'reference' => $detail->reference,
             'book_id' => $book->id,
-            'user_id' => 1,
+            'user_id' => auth()->user()->id,
         ]);
 
-        return redirect()->route('transaction.invoice', [
+        return redirect()->route('transaction.show', [
             'reference' => $detail->reference
         ]);
     }
 
-    public function invoice($reference)
+    public function show($reference)
     {
-        $invoice = Transaction::where('reference', $reference)->first();
         $tripay = new TripayController();
         $detail = $tripay->transactionDetail($reference);
 

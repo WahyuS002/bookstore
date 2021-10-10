@@ -5,7 +5,7 @@
     <div class="col-span-3">
         <div class="p-4 rounded-lg bg-white shadow-soft">
             <div class="flex items-center justify-between">
-                <p class="text-xs text-gray-400 uppercase tracking-widest font-semibold">Invoice Detail</p>
+                <p class="text-xs text-gray-400 uppercase tracking-widest font-semibold">Transaction Detail</p>
                 <p class="text-sm text-primary font-medium">#{{ $detail->merchant_ref }}</p>
             </div>
             <div class="mt-3">
