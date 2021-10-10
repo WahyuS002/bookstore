@@ -16,7 +16,7 @@ class CreateBooksTable extends Migration
         Schema::create('books', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->enum('payment_type', ['closed', 'open']);
+            $table->string('category');
             $table->float('rating');
             $table->integer('price');
             $table->string('cover_image');
