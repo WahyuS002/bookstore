@@ -15,9 +15,10 @@ class CreateTransactionsTable extends Migration
     {
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
-            $table->string('reference');
             $table->foreignId('book_id')->constrained();
             $table->foreignId('user_id')->constrained();
+            $table->string('reference');
+            $table->integer('total_amount');
             $table->enum('status', ['paid', 'unpaid']);
             $table->timestamps();
         });

@@ -17,9 +17,10 @@ class TransactionController extends Controller
         $detail = $tripay->requestTransaction($book, $method);
 
         Transaction::create([
-            'reference' => $detail->reference,
             'book_id' => $book->id,
             'user_id' => auth()->user()->id,
+            'reference' => $detail->reference,
+            'total_amount' => $detail->amount,
         ]);
 
         return redirect()->route('transaction.show', [
