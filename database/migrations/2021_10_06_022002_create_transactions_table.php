@@ -19,7 +19,7 @@ class CreateTransactionsTable extends Migration
             $table->foreignId('user_id')->constrained();
             $table->string('reference');
             $table->integer('total_amount');
-            $table->enum('status', ['paid', 'unpaid']);
+            $table->enum('status', ['paid', 'unpaid'])->default('unpaid');
             $table->timestamps();
         });
     }
